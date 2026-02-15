@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Page</title>
+
+<style>
+body{
+  margin:0;
+  background:black;
+  color:white;
+  font-family:sans-serif;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  user-select:none;
+}
+
+.container{
+  width:100%;
+  max-width:500px;
+  margin:0 auto;
+  position: relative;
+}
+
+.star-bg{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:0;
+  pointer-events:none;
+  height:auto;
+}
+
+.star-bottom{
+  top:108%;
+  left:-15%;
+}
+
+.star1{ animation: twinkle1 4s infinite ease-in-out; }
+.star2{ animation: twinkle2 6s infinite ease-in-out; }
+.star3{ animation: twinkle3 5s infinite ease-in-out; }
+
+@keyframes twinkle1{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
+}
+@keyframes twinkle2{
+  0%,100%{opacity:0.3;}
+  50%{opacity:0.9;}
+}
+@keyframes twinkle3{
+  0%,100%{opacity:0.25;}
+  50%{opacity:0.8;}
+}
+
+.block{
+  width:100%;
+  height:120px;
+  background:green;
+  margin-bottom:20px;
+}
+
+
+.open-door{
+  width:90%;
+  display:block;
+  transform: translate(0.25%, 25%);
+}
+
+
+.closed-door{
+  width:90%;
+  display:block;
+  transform: translate(1%, 25%);
+}
+
+.open-knob{
+  position:absolute;
+  width:10%;
+  top:79%;
+  left:73%;
+  transform:translate(-50%,-50%);
+  cursor:pointer;
+  z-index:5;
+}
+
+.close-knob{
+  position:absolute;
+  width:8%;
+  top:84%;
+  left:23%;
+  transform:translate(-50%,-50%);
+  opacity:0.5;
+  cursor:pointer;
+  z-index:5;
+  display:none;
+}
+
+.bird_H{
+  position:absolute;
+  width:30%;
+  top:62%;
+  left:48%;
+  transform:translate(-50%, -100%);
+}
+
+.bird_A{
+  position:absolute;
+  width:25%;
+  top: 102%;
+  left:68%;
+  transform:translate(-50%, -100%);
+}
+
+.huijia{
+  position:absolute;
+  width:11%;
+  top:46%;
+  left:48%;
+  transform:translate(-50%,-100%) scale(0.8);
+  opacity:0;
+  pointer-events:none;
+  z-index:6;
+}
+
+.huijia.show{
+  animation: huijiaPop 1.2s ease forwards;
+}
+
+.alejandro{
+  position:absolute;
+  width:13%;
+  top:106%;
+  left:67%;
+  transform:translate(-50%,0%) scale(0.8);
+  opacity:0;
+  pointer-events:none;
+  z-index:6;
+}
+
+.alejandro.show{
+  animation: huijiaPop 1.2s ease forwards;
+}
+
+@keyframes huijiaPop{
+  0%   { opacity:0; transform:translate(-50%,-120%) scale(0.6);}
+  20%  { opacity:1; transform:translate(-50%,-135%) scale(0.9);}
+  70%  { opacity:1; transform:translate(-50%,-150%) scale(1);}
+  100% { opacity:0; transform:translate(-50%,-165%) scale(0.9);}
+}
+
+.letter{
+  position:absolute;
+  width:18%;
+  top:72%;
+  left:29%;
+  transform:translate(-50%,-50%) scale(1);
+  transform-origin:center center;
+  transition:all 0.6s ease;
+  cursor:pointer;
+}
+
+.envelope{
+  position:absolute;
+  width:18%;
+  top:72%;
+  left:29%;
+  transform:translate(-50%,-50%);
+  cursor:pointer;
+  z-index:2;
+  opacity:1;
+  transition: opacity 0.4s ease;
+}
+
+.highlight{
+  position:absolute;
+  width:15%;
+  top:67%;
+  left: 36%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  opacity:1;
+  transition: opacity 0.4s ease;
+  pointer-events:none;
+}
+
+
+.highlight-closed{
+  position:absolute;
+  width:15%;
+  top:75%;
+  left:74%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  pointer-events:none;
+}
+
+.pink-leaf{
+  position:absolute;
+  width:14%;
+  top:62%;
+  left:48%;
+  transform:translate(-50%,-100%);
+  pointer-events:none;
+  animation: leafFloat 6s linear forwards;
+}
+
+@keyframes leafFloat{
+  0%   { transform:translate(-50%,-100%) translate(0,0) rotate(0deg); opacity:1;}
+  20%  { transform:translate(-50%,-100%) translate(30px,60px) rotate(20deg);}
+  40%  { transform:translate(-50%,-100%) translate(80px,140px) rotate(-10deg);}
+  60%  { transform:translate(-50%,-100%) translate(140px,220px) rotate(15deg);}
+  80%  { transform:translate(-50%,-100%) translate(160px,260px) rotate(0deg); opacity:1;}
+  100% { transform:translate(-50%,-100%) translate(160px,260px) rotate(0deg); opacity:0;}
+}
+
+.letter.active{
+  position:absolute;
+  top:72%;
+  left:50%;
+  width:80%;
+  transform:translate(-50%,-50%) scale(1);
+  z-index:999;
+}
+
+.signature{
+  position:absolute;
+  width:20%;
+  bottom:-1%;
+  right:30%;
+  z-index:10;
+  opacity:0.7;
+  pointer-events:none;
+}
+
+.sign{
+  position:absolute;
+  width:54%;
+  bottom:-75%;
+  left:25%;
+  z-index:10;
+  pointer-events:none;
+}
+
+img{
+  -webkit-user-drag:none;
+  user-select:none;
+  pointer-events:auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <img src="assets/star1.png" class="star-bg star1">
+  <img src="assets/star1.png" class="star-bg star1 star-bottom">
+  <img src="assets/star2.png" class="star-bg star2">
+  <img src="assets/star2.png" class="star-bg star2 star-bottom">
+  <img src="assets/star3.png" class="star-bg star3">
+  <img src="assets/star3.png" class="star-bg star3 star-bottom">
+  <img src="assets/open_door.png" class="open-door" id="openDoor" style="display:none;">
+  <img src="assets/bird_A.png" class="bird_A">
+  <img src="assets/Alejandro.png" class="alejandro" id="alejandro">
+  <img src="assets/huijia.png" class="huijia" id="huijia">
+  <img src="assets/closed_door.png" class="closed-door" id="closedDoor">
+  <img src="assets/bird_H.gif" class="bird_H">
+  <img src="assets/open_knob.png" class="open-knob" id="openKnob">
+  <img src="assets/highlight.gif" class="highlight-closed" id="highlightClosed">
+  <img src="assets/letter.png" class="letter" id="letter">
+  <img src="assets/envelope.png" class="envelope" id="envelope">
+  <img src="assets/highlight.gif" class="highlight" id="highlight">
+  <img src="assets/close_knob.png" class="close-knob" id="closeKnob">
+  <img src="assets/sign.png" class="sign">
+  <img src="assets/signature.png" class="signature">
+</div>
+
+</body>
+<script>
+  const openDoor = document.getElementById("openDoor");
+  const closedDoor = document.getElementById("closedDoor");
+
+  const openKnob = document.getElementById("openKnob");
+  const closeKnob = document.getElementById("closeKnob");
+
+  const letter = document.getElementById("letter");
+  const envelope = document.getElementById("envelope");
+  const highlight = document.getElementById("highlight");
+  const highlightClosed = document.getElementById("highlightClosed");
+  const birdH = document.querySelector(".bird_H");
+  const huijia = document.getElementById("huijia");
+  const birdA = document.querySelector(".bird_A");
+  const alejandro = document.getElementById("alejandro");
+  let leafInterval = null;
+
+  openKnob.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    openDoor.style.display = "block";
+    closedDoor.style.display = "none";
+    updateInteractiveState();
+  });
+
+  closeKnob.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    openDoor.style.display = "none";
+    closedDoor.style.display = "block";
+    updateInteractiveState();
+  });
+
+  function updateInteractiveState(){
+    const isOpen = openDoor.style.display !== "none";
+    if(isOpen){
+      envelope.style.display = "block";
+      highlight.style.display = "block";
+      letter.style.display = "block";
+      highlightClosed.style.display = "none";
+      openKnob.style.display = "none";
+      closeKnob.style.display = "block";
+      startLeaf();
+    }else{
+      envelope.style.display = "none";
+      highlight.style.display = "none";
+      letter.style.display = "none";
+      highlightClosed.style.display = "block";
+      openKnob.style.display = "block";
+      closeKnob.style.display = "none";
+      stopLeaf();
+      document.querySelectorAll(".pink-leaf").forEach(leaf => leaf.remove());
+    }
+  }
+
+  envelope.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    envelope.style.display = "none";
+    highlight.style.display = "none";
+    letter.classList.add("active");
+  });
+
+  letter.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    letter.classList.remove("active");
+    envelope.style.display = "block";
+    highlight.style.display = "block";
+    envelope.style.opacity = "0";
+    highlight.style.opacity = "0";
+    setTimeout(()=>{
+      envelope.style.opacity = "1";
+      highlight.style.opacity = "1";
+    }, 600);
+  });
+
+  function createLeaf(){
+    const leaf = document.createElement("img");
+    leaf.src = "assets/pink_leaf.png";
+    leaf.className = "pink-leaf";
+    document.querySelector(".container").appendChild(leaf);
+
+    leaf.addEventListener("animationend",()=>{
+      leaf.remove();
+    });
+  }
+
+  function startLeaf(){
+    if(leafInterval) return;
+    createLeaf();
+    leafInterval = setInterval(createLeaf,8000);
+  }
+
+  function stopLeaf(){
+    clearInterval(leafInterval);
+    leafInterval = null;
+    document.querySelectorAll(".pink-leaf").forEach(leaf => leaf.remove());
+  }
+
+  birdH.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    huijia.classList.remove("show");
+    void huijia.offsetWidth; // restart animation
+    huijia.classList.add("show");
+  });
+
+  birdA.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    alejandro.classList.remove("show");
+    void alejandro.offsetWidth; // restart animation
+    alejandro.classList.add("show");
+  });
+
+</script>
+<script>
+  document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+  });
+
+  document.querySelectorAll("img").forEach(img=>{
+    img.setAttribute("draggable","false");
+  });
+  updateInteractiveState();
+</script>
+</html>
